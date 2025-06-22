@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Typing Challenge</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header class="game-header">
+            <h1><i class="fas fa-keyboard"></i> Speed Typing Challenge</h1>
+            <p class="subtitle">Test your typing speed and accuracy</p>
+        </header>
+        
+        <!-- Main Menu Section -->
+        <div id="menu" class="section active">
+            <div class="menu-grid">
+                <button id="play-btn" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                </button>
+                <button id="scoreboard-btn" class="btn btn-secondary">
+                    <i class="fas fa-trophy"></i>
+                    <span>Scoreboard</span>
+                </button>
+                <button id="settings-btn" class="btn btn-info">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                <button id="exit-btn" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Exit</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Player Name Input Section -->
+        <div id="player-name-section" class="section">
+            <div class="form-container">
+                <h2><i class="fas fa-user"></i> Player Setup</h2>
+                <div class="input-group">
+                    <i class="fas fa-user-edit input-icon"></i>
+                    <input type="text" id="player-name" placeholder="Enter your awesome name" maxlength="20">
+                </div>
+                <div class="difficulty-selector">
+                    <label>Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy (90s)</option>
+                        <option value="medium" selected>Medium (60s)</option>
+                        <option value="hard">Hard (30s)</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button id="start-game-btn" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Start Game
+                    </button>
+                    <button id="back-to-menu-btn" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Section -->
+        <div id="game" class="section">
+            <div class="game-interface">
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <i class="fas fa-user"></i>
+                        <span id="current-player-name">Player</span>
+                    </div>
+                    <div class="stat-item timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="time">60</span>s
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span id="score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span id="wpm">0</span> WPM
+                    </div>
+                </div>
+                
+                <div class="word-container">
+                    <div id="word-display" class="word-display">Ready?</div>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="input-container">
+                    <input type="text" id="word-input" placeholder="Type the word here..." autofocus>
+                    <div id="feedback" class="feedback"></div>
+                </div>
+                
+                <div class="game-controls">
+                    <button id="pause-btn" class="btn btn-warning">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Over Section -->
+        <div id="game-over" class="section">
+            <div class="game-over-container">
+                <div class="trophy-animation">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Game Complete!</h2>
+                <div class="final-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="final-score">0</div>
+                        <div class="stat-label">Words Typed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="final-wpm">0</div>
+                        <div class="stat-label">WPM</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="final-accuracy">0%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="play-again-btn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                    <button id="menu-after-game-btn" class="btn btn-outline">
+                        <i class="fas fa-home"></i> Main Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scoreboard Section -->
+        <div id="scoreboard-section" class="section">
+            <div class="scoreboard-container">
+                <h2><i class="fas fa-trophy"></i> Hall of Fame</h2>
+                <div class="scoreboard-tabs">
+                    <button class="tab-btn active" data-tab="all">All Time</button>
+                    <button class="tab-btn" data-tab="today">Today</button>
+                </div>
+                <div class="scoreboard" id="scoreboard-list"></div>
+                <button id="clear-scores-btn" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i> Clear Scores
+                </button>
+                <button id="menu-from-scoreboard-btn" class="btn btn-outline">
+                    <i class="fas fa-home"></i> Main Menu
+                </button>
+            </div>
+        </div>
+        
+        <!-- Settings Section -->
+        <div id="settings-section" class="section">
+            <div class="settings-container">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label>Sound Effects:</label>
+                        <input type="checkbox" id="sound-toggle" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label>Theme:</label>
+                        <select id="theme-selector">
+                            <option value="default">Cosmic</option>
+                            <option value="dark">Dark Mode</option>
+                            
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Word Categories:</label>
+                        <select id="word-category">
+                            <option value="programming">Programming</option>
+                            <option value="common">Common Words</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="menu-from-settings-btn" class="btn btn-outline">
+                    <i class="fas fa-home"></i> Main Menu
+                </button>
+            </div>
+        </div>
+        
+        <footer class="game-footer">
+            <p>Created with <i class="fas fa-heart"></i> for typing enthusiasts</p>
+            <p> Change Word Categories In Settings  </p>
+            <p>Made By VS </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
