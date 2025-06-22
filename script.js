@@ -34,7 +34,7 @@ class TypingGame {
             programming: [
                 'javascript','binary tree','linked list','hashmap','queue','stack','data structure','programming', 'developer', 'algorithm', 'function', 'variable',
                 'async','API', 'REST', 'GraphQL','await', 'promise', 'react', 'angular', 'vue', 'database', 'Syntax Error SUCKS','server',
-                'client', 'internet', 'browser', 'console', 'syntax', 'framework', 'library','GCET Coding ',
+                'client', 'internet', 'browser', 'console', 'syntax', 'framework', 'library','GCET Coding',
                 'iteration', 'recursion', 'object', 'closure', 'callback', 'prototype','GITHUB is Pain In The Ass',
                 'expression', 'statement', 'operator', 'component', 'interface', 'inheritance',
                 'polymorphism', 'encapsulation', 'abstraction', 'debugging', 'testing'
